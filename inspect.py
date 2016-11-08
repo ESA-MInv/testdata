@@ -38,6 +38,8 @@ def compare(paths):
         first_row = rows[0]
         for row in rows[1:]:
             for fieldname in fieldnames:
+                if not row:
+                    continue
                 if first_row.get(fieldname) != row.get(fieldname):
                     print "Difference detected in field %s for record %d: %s != %s" % (
                         fieldname, i, first_row.get(fieldname), row.get(fieldname)
